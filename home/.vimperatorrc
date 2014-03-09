@@ -1,0 +1,9 @@
+" vim: set filetype=vimperator :
+set complete=bhst
+colorscheme molokai
+
+let g:smooziee_scroll_amount="30"
+let g:smooziee_scroll_interval="10"
+
+source! /Users/john/.vimperatorrc.local
+

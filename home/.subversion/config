@@ -1,0 +1,14 @@
+### This file configures various client-side behaviors.
+
+### Section for authentication and authorization customizations.
+[auth]
+
+[helpers]
+
+[tunnels]
+
+[miscellany]
+global-ignores = *.iml *.iws *.ipr tmp venv target *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo .idea .coverage
+
+[auto-props]
+
