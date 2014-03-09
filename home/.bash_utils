@@ -1,3 +1,14 @@
+ssh() {
+  host=$(echo "$*" | sed 's/.*[[:space:]]\([^\S]*\)$/\1/')
+  if [ -n "${TMUX}" ]; then
+    tmux rename-window ${host}
+    command ssh "$@"
+    tmux set-window-option automatic-rename "on" 1>/dev/null
+  else
+    command ssh "$@"
+  fi
+}
+
 copy_ssh_id_host() {
   cat .ssh/id_rsa.pub \
   | ssh $1 \

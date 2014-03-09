@@ -17,6 +17,7 @@ alias ......="cd ../../../"
 alias ll="ls -G -lisa"
 alias ls="ls -G"
 alias vi="vim"
+alias hs="homesick"
 
 alias pull="git pull --rebase"
 alias status="git status ."
