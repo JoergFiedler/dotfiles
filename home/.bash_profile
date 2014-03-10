@@ -49,8 +49,8 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
      . `brew --prefix`/etc/bash_completion
 fi
 
-for i in ~/.profile.d/*.sh ; do
-  echo $file
+for file in ~/.profile.d/*.sh ; do
+  source $file
 done
 
 [[ -r ~/.bashmarks ]] && source ~/.bashmarks
