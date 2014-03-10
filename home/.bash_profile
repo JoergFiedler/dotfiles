@@ -3,7 +3,7 @@ ITERM_TAB="\[\e]1;\h:\]\W\[\a\]"
 
 prompt_cmd() {
   PS1="${ITERM_TITLE}${ITERM_TAB}\e[7m[\D{%k:%M} | \w]\e[m\n \[\033[1;34m\]"$?"\[\e[0m\] $(git_prompt) $ "
-  return 0
+  history -a
 }
 
 PROMPT_COMMAND=prompt_cmd
