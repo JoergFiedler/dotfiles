@@ -49,12 +49,11 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
      . `brew --prefix`/etc/bash_completion
 fi
 
-[[ -r ~/.bash_gitprompt ]] && source ~/.bash_gitprompt
-[[ -r ~/.bash_grailsenv ]] && source ~/.bash_grailsenv
-[[ -r ~/.bash_python ]] && source ~/.bash_python
-[[ -r ~/.bash_utils ]] && source ~/.bash_utils
+for i in ~/.profile.d/*.sh ; do
+  echo $file
+done
+
 [[ -r ~/.bashmarks ]] && source ~/.bashmarks
-[[ -r ~/.bash_local ]] && source ~/.bash_local
 
 # NodeJS
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
