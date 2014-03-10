@@ -2,3 +2,4 @@
 .vim/colors
 .vim/syntax
 .subversion
+.profile.d
