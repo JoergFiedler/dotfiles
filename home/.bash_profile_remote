@@ -1,0 +1,9 @@
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind '"\e[1;2A": previous-history'
+bind '"\e[1;2B": next-history'
+export HISTCONTROL=ignoreboth
+export HISTSIZE=10000
+shopt -s histappend
+
+PS1="\[\e]0;\u@\h: \w\a\]\[\e]0;\h: \w\a\]\[\033[32m\]\u\[\033[39m\]@\[\033[33m\]\h\[\033[34m\] \w\[\033[34m\] \$\[\033[00m\]\n \[\033[1;34m\]"$?"\[\e[0m\] $ "
