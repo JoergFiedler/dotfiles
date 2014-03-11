@@ -53,6 +53,7 @@ for file in ~/.profile.d/*.sh ; do
   source $file
 done
 
+create_ssh_aliases ~/.ssh-hosts
 [[ -r ~/.bashmarks ]] && source ~/.bashmarks
 
 # NodeJS
