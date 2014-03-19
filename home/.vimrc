@@ -16,6 +16,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'leshill/vim-json'
 Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'ap/vim-css-color'
+Bundle 'kchmck/vim-coffee-script'
 
 " syntastic/pathogen
 execute pathogen#infect()
