@@ -15,6 +15,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
 Bundle 'leshill/vim-json'
 Bundle 'jtratner/vim-flavored-markdown'
+Bundle 'ap/vim-css-color'
 
 " syntastic/pathogen
 execute pathogen#infect()
@@ -49,7 +50,7 @@ set laststatus=2 " always show statusbar
 
 " Configure white spaces
 set list
-set listchars=eol:¬,tab:»»,trail:‸,extends:>,precedes:<
+set listchars=eol:¬,tab:……,trail:‸,extends:>,precedes:<
 
 set incsearch " Jump to the first match in real-time
 set ignorecase " Case insensitive search, by default.

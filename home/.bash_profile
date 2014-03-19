@@ -18,6 +18,8 @@ alias ll="ls -G -lisa"
 alias ls="ls -G"
 alias vi="vim"
 alias hs="homesick"
+alias le="less -R"
+alias sdiff="svn diff |colordiff|less -R"
 
 alias pull="git pull --rebase"
 alias status="git status ."
