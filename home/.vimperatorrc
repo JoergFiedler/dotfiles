@@ -1,5 +1,6 @@
 " vim: set filetype=vimperator :
 set complete=bhst
+set gui=none
 colorscheme molokai
 
 let g:smooziee_scroll_amount="30"

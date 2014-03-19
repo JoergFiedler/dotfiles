@@ -3,3 +3,4 @@
 .vim/syntax
 .subversion
 .profile.d
+.vimperator/plugins
