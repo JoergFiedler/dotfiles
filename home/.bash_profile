@@ -68,6 +68,3 @@ create_ssh_aliases ~/.ssh-hosts
 # Ruby
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Groovy/Grails
-[[ -s "~/.gvm/bin/gvm-init.sh" && -z $(which gvm-init.sh | grep '/gvm-init.sh') ]] && source "~/.gvm/bin/gvm-init.sh"
-
