@@ -27,10 +27,9 @@ alias push="git push"
 alias add="git add -p"
 alias gpass="openssl rand -base64 12"
 
-export RUBY_HOME="/data/home/jfiedler/.gem/ruby/2.0.0/"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export MAVEN_HOME="~/opt/maven/"
-export PATH="$HOME/bin:${PATH}:${RUBY_HOME}/bin:${JAVA_HOME}/bin:${MAVEN_HOME}/bin"
+export PATH="$HOME/.rbenv/shims:$HOME/bin:${PATH}:${JAVA_HOME}/bin:${MAVEN_HOME}/bin"
 export TERM=xterm-256color
 export PYTHONPATH=$PYTHONPATH:/opt/graphite/lib/
 
@@ -64,10 +63,4 @@ create_ssh_aliases ~/.ssh-hosts
 [ -r $NVM_PATH/../node_modules/npm/lib/utils/completion.sh ] \
   && source $NVM_PATH/../node_modules/npm/lib/utils/completion.sh
 #eval "$(grunt --completion=bash)"
-
-# Ruby
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# Groovy/Grails
-[[ -s "~/.gvm/bin/gvm-init.sh" && -z $(which gvm-init.sh | grep '/gvm-init.sh') ]] && source "~/.gvm/bin/gvm-init.sh"
 
