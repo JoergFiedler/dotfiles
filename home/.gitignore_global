@@ -3,4 +3,6 @@
 *ipr
 *iws
 venv
+tmp
+coverage
 

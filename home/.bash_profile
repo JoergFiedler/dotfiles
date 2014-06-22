@@ -25,6 +25,7 @@ alias pull="git pull --rebase"
 alias status="git status ."
 alias push="git push"
 alias add="git add -p"
+alias lg="git lg | head"
 alias gpass="openssl rand -base64 12"
 
 export JAVA_HOME=$(/usr/libexec/java_home)
