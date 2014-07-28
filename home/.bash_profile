@@ -28,6 +28,9 @@ alias add="git add -p"
 alias lg="git lg | head"
 alias gpass="openssl rand -base64 12"
 
+alias vi='/usr/local/bin/vi'
+alias vim='/usr/local/bin/vim'
+
 export JAVA_HOME=$(/usr/libexec/java_home)
 export MAVEN_HOME="~/opt/maven/"
 export PATH="$HOME/.rbenv/shims:$HOME/bin:${PATH}:${JAVA_HOME}/bin:${MAVEN_HOME}/bin"

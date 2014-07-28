@@ -33,6 +33,9 @@ set nobackup
 set noswapfile
 set nowritebackup
 
+" use pastboard service
+set clipboard=unnamed
+
 " Use filetype-specific plugins and indentation
 set nosmartindent
 " Enable filetype detection
