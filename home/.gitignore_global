@@ -2,7 +2,9 @@
 *iml
 *ipr
 *iws
+.venv
 venv
 tmp
 coverage
+.coverage
 
