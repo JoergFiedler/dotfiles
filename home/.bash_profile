@@ -31,6 +31,9 @@ alias gpass="openssl rand -base64 12"
 alias vi='/usr/local/bin/vi'
 alias vim='/usr/local/bin/vim'
 
+alias tma='tmux attach -t $1'
+alias tmn='tmux new -s $1'
+
 export JAVA_HOME=$(/usr/libexec/java_home)
 export MAVEN_HOME="~/opt/maven/"
 export PATH="$HOME/.rbenv/shims:$HOME/bin:${PATH}:${JAVA_HOME}/bin:${MAVEN_HOME}/bin"
