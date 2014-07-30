@@ -1,4 +1,4 @@
-ITERM_TITLE="\h:\w"
+TITLE="\h:\w"
 
 setTitle() {
   echo "\033]1; $1 \007"
