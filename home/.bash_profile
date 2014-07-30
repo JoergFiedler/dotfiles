@@ -1,8 +1,11 @@
-ITERM_TITLE="\[\e]2;\h:\]\w\[\a\]"
-ITERM_TAB="\[\e]1;\h:\]\W\[\a\]"
+ITERM_TITLE="\h:\w"
+
+setTitle() {
+  echo "\033]1; $1 \007"
+}
 
 prompt_cmd() {
-  PS1="${ITERM_TITLE}${ITERM_TAB}\e[7m[\D{%k:%M} | \w]\e[m\n \[\033[1;34m\]"$?"\[\e[0m\] $(git_prompt) $ "
+  PS1="$(setTitle $TITLE)\e[7m[\D{%k:%M} | \w]\e[m\n \[\033[1;34m\]"$?"\[\e[0m\] $(git_prompt) $ "
   history -a
 }
 
@@ -33,6 +36,7 @@ alias vim='/usr/local/bin/vim'
 
 alias tma='tmux attach -t $1'
 alias tmn='tmux new -s $1'
+alias tm='tmux list-sessions'
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 export MAVEN_HOME="~/opt/maven/"
