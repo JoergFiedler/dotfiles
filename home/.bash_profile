@@ -1,16 +1,17 @@
 TITLE="\h:\w"
 
+# on a remote machine
+if [ -n "${SSH_CLIENT}" ]; then
+  PROMPT_COLOR="\e[38;5;179m"
+fi
+
 set_title() {
   echo "\033]1; $1 \007"
 }
 
 prompt_cmd() {
-  PS1="$(set_title $TITLE)\e[7m[\D{%k:%M} | \w]\e[m\n \[\033[1;34m\]"$?"\[\e[0m\] $(git_prompt) $ "
+  PS1="$(set_title ${TITLE})${PROMPT_COLOR}\e[7m[\h | \w]\e[m\n \[\033[1;34m\]"$?"\[\e[0m\] $(git_prompt) $ "
   history -a
-}
-
-zip_dotfiles() {
-  tar czf ${HOME}/.dotfiles_ssh.tar.gz .bash_profile .vimrc .vim .profile.d
 }
 
 PROMPT_COMMAND=prompt_cmd
@@ -35,16 +36,14 @@ alias add="git add -p"
 alias lg="git lg | head"
 alias gpass="openssl rand -base64 12"
 
-alias vi='/usr/local/bin/vi'
-alias vim='/usr/local/bin/vim'
+[[ -e /usr/local/bin/vi ]] && alias vi='/usr/local/bin/vi'
+[[ -e /usr/local/bin/vim ]] && alias vim='/usr/local/bin/vim'
 
 alias tma='tmux attach -t $1'
 alias tmn='tmux new -s $1'
 alias tm='tmux list-sessions'
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-export MAVEN_HOME="~/opt/maven/"
-export PATH="$HOME/.rbenv/shims:$HOME/bin:${PATH}:${JAVA_HOME}/bin:${MAVEN_HOME}/bin"
+export PATH="$HOME/bin:${PATH}"
 export TERM=xterm-256color
 export PYTHONPATH=$PYTHONPATH:/opt/graphite/lib/
 
@@ -60,16 +59,12 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=10000
 shopt -s histappend
 
-# brew bash completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-     . `brew --prefix`/etc/bash_completion
+if [ -d ~/.profile.d ]; then
+  for file in ~/.profile.d/*.sh ; do
+    source $file
+  done
 fi
 
-for file in ~/.profile.d/*.sh ; do
-  source $file
-done
-
-create_ssh_aliases ~/.ssh-hosts
 [[ -r ~/.bashmarks ]] && source ~/.bashmarks
 
 # NodeJS

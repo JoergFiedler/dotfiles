@@ -1,24 +1,42 @@
+SSH_DOTFILE_NAME='.dotfiles_ssh.tar.gz'
+
 zip_dotfiles() {
-  tar czf ${HOME}/.dotfiles_ssh.tar.gz .bash_profile .vimrc .vim .profile.d
+  tar czLf ${HOME}/${SSH_DOTFILE_NAME} .bash_profile .profile.d/gitprompt.sh .vimrc .vim .tmux.conf
 }
 
-public_key_auth_ok() {
-  echo `command /usr/bin/ssh -o BatchMode=yes $1 echo 'ok' 2> /dev/null`
+remote_dotfiles_sha() {
+  echo `command /usr/bin/ssh -o BatchMode=yes $1 sha1sum ${SSH_DOTFILE_NAME} 2> /dev/null |sed 's/\([^ ]*\).*/\1/g'`
+}
+
+copy_ssh_id_host() {
+  cat .ssh/id_rsa.pub \
+  | ssh $1 \
+     "echo copying ssh public key to $1; \
+     if test ! -d .ssh/; then \
+       mkdir .ssh; \
+       chmod 700 .ssh; \
+     fi; \
+     cat -> .ssh/authorized_keys; \
+     chmod 600 .ssh/authorized_keys"
 }
 
 ssh() {
   host=$(echo "$*" | sed 's/.*[[:space:]]\([^\S]*\)$/\1/')
-  if [ -z "$(public_key_auth_ok $host)" ]; then
-    echo 'Need to copy public key to enable pub-key authentication'
+  local_sha=$(shasum ${HOME}/${SSH_DOTFILE_NAME} |sed 's/\([^ ]*\).*/\1/g')
+  remote_sha=$(remote_dotfiles_sha $host)
+
+  if [ -z "$remote_sha" ]; then
+    echo 'Copy public key to enable pub-key authentication'
     copy_ssh_id_host $host
   fi
-  command ssh "$@"
-}
 
-copy_ssh_id() {
-  for host in $(cat $1); do
-    copy_ssh_id_host ${host}
-  done
+  if [ "$local_sha" != "$remote_sha" ]; then
+    echo "Update remote dotfiles"
+    scp -q ${HOME}/${SSH_DOTFILE_NAME} ${host}:
+    command ssh $host tar xzf ${SSH_DOTFILE_NAME}
+  fi
+
+  command ssh "$@"
 }
 
 create_ssh_aliases() {
@@ -27,3 +45,6 @@ create_ssh_aliases() {
   done
 }
 
+[[ -f ~/.ssh-hosts ]] && create_ssh_aliases ~/.ssh-hosts
+
+zip_dotfiles
