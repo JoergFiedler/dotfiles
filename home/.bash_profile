@@ -1,12 +1,16 @@
 TITLE="\h:\w"
 
-setTitle() {
+set_title() {
   echo "\033]1; $1 \007"
 }
 
 prompt_cmd() {
-  PS1="$(setTitle $TITLE)\e[7m[\D{%k:%M} | \w]\e[m\n \[\033[1;34m\]"$?"\[\e[0m\] $(git_prompt) $ "
+  PS1="$(set_title $TITLE)\e[7m[\D{%k:%M} | \w]\e[m\n \[\033[1;34m\]"$?"\[\e[0m\] $(git_prompt) $ "
   history -a
+}
+
+zip_dotfiles() {
+  tar czf ${HOME}/.dotfiles_ssh.tar.gz .bash_profile .vimrc .vim .profile.d
 }
 
 PROMPT_COMMAND=prompt_cmd

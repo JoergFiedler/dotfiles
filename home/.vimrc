@@ -43,6 +43,10 @@ filetype plugin indent on
 " Enable modeline support as it is disabled by default
 " in OS X
 set modelines=1
+" Indentation without hard tabs
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 
 colorscheme bubblegum
 
