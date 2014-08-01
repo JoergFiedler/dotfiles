@@ -29,7 +29,7 @@ alias hs="homesick"
 alias le="less -R"
 alias sdiff="svn diff |colordiff|less -R"
 
-alias pull="git pull --rebase"
+alias pull="git pull --rebase --prune"
 alias status="git status ."
 alias push="git push"
 alias add="git add -p"
