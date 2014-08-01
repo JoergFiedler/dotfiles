@@ -5,12 +5,12 @@ zip_dotfiles() {
 }
 
 remote_dotfiles_sha() {
-  echo `command /usr/bin/ssh -o BatchMode=yes $1 sha1sum ${SSH_DOTFILE_NAME} 2> /dev/null |sed 's/\([^ ]*\).*/\1/g'`
+  echo `command /usr/bin/ssh -o BatchMode=yes $1 sha1sum ${SSH_DOTFILE_NAME} 2> /dev/null | grep ${SSH_DOTFILE_NAME} |sed 's/\([^ ]*\).*/\1/g'`
 }
 
 copy_ssh_id_host() {
   cat .ssh/id_rsa.pub \
-  | ssh $1 \
+  | command ssh $1 \
      "echo copying ssh public key to $1; \
      if test ! -d .ssh/; then \
        mkdir .ssh; \
