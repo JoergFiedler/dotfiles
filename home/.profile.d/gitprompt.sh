@@ -29,7 +29,7 @@ git_clean() {
 }
 
 git_branchName() {
-  local branch=`echo "${GIT_STATUS}" | sed -n "/#.On.branch.*$/p" | sed 's/#.On.branch.\([^\s]+\)*/\1/'`
+  local branch=`echo "${GIT_STATUS}" | grep 'On branch' | sed "s/On.branch.\([^ ]*\).*/\1/"`
   [[ $branch != "master" ]] || branch=''
   echo $branch
 }
