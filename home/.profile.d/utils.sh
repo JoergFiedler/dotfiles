@@ -1,7 +1,7 @@
 SSH_DOTFILE_NAME='.dotfiles_ssh.tar.gz'
 
 zip_dotfiles() {
-  tar czLf ${HOME}/${SSH_DOTFILE_NAME} .bash_profile .profile.d/gitprompt.sh .vimrc .vim .tmux.conf
+  tar czLf ${HOME}/${SSH_DOTFILE_NAME} ~/.ssh/config ~/.bash_profile ~/.profile.d/gitprompt.sh ~/.vimrc ~/.vim ~/.tmux.conf
 }
 
 remote_dotfiles_sha() {
