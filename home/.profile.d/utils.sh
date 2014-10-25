@@ -22,7 +22,7 @@ copy_ssh_id_host() {
 
 ssh() {
   host=$(echo "$*" | sed 's/.*[[:space:]]\([^\S]*\)$/\1/')
-  local_sha=$(shasum ${HOME}/${SSH_DOTFILE_NAME} |sed 's/\([^ ]*\).*/\1/g')
+  local_sha=$(shasum -a 1 ${SSH_DOTFILE_NAME} |sed 's/\([^ ]*\).*/\1/g')
   remote_sha=$(remote_dotfiles_sha $host)
 
   if [ -z "$remote_sha" ]; then
