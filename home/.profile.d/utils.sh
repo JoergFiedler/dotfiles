@@ -1,7 +1,7 @@
 SSH_DOTFILE_NAME="${HOME}/.dotfiles_ssh.tar.gz"
 
 zip_dotfiles() {
-  tar czLf ${SSH_DOTFILE_NAME} ${HOME}/.ssh/config ${HOME}/.bash_profile ${HOME}/.profile.d/gitprompt.sh ${HOME}/.vimrc ${HOME}/.vim ${HOME}/.tmux.conf
+  tar czLf ${SSH_DOTFILE_NAME} .ssh/config .bash_profile .profile.d/gitprompt.sh .vimrc .vim .tmux.conf
 }
 
 remote_dotfiles_sha() {
@@ -32,7 +32,7 @@ ssh() {
 
   if [ "$local_sha" != "$remote_sha" ]; then
     echo "Update remote dotfiles"
-    scp -q ${HOME}/${SSH_DOTFILE_NAME} ${host}:
+    scp -q ${SSH_DOTFILE_NAME} ${host}:
     command /usr/bin/ssh $host tar xzf ${SSH_DOTFILE_NAME}
   fi
 
