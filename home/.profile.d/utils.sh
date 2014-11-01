@@ -1,7 +1,10 @@
 SSH_DOTFILE_NAME="${HOME}/.dotfiles_ssh.tar.gz"
 
 zip_dotfiles() {
+  old_pwd=$(pwd)
+  cd ~
   tar czLf ${SSH_DOTFILE_NAME} .ssh/config .bash_profile .profile.d/gitprompt.sh .vimrc .vim .tmux.conf
+  cd ${old_pwd}
 }
 
 remote_dotfiles_sha() {
@@ -11,13 +14,13 @@ remote_dotfiles_sha() {
 copy_ssh_id_host() {
   cat ${HOME}/.ssh/id_rsa.pub \
   | command /usr/bin/ssh $1 \
-     "echo copying ssh public key to $1; \
+     'echo copying ssh public key to $1; \
      if test ! -d ${HOME}/.ssh/; then \
        mkdir ${HOME}/.ssh; \
        chmod 700 ${HOME}/.ssh; \
      fi; \
      cat -> ${HOME}/.ssh/authorized_keys; \
-     chmod 600 ${HOME}/.ssh/authorized_keys"
+     chmod 600 ${HOME}/.ssh/authorized_keys'
 }
 
 ssh() {
@@ -33,7 +36,7 @@ ssh() {
   if [ "$local_sha" != "$remote_sha" ]; then
     echo "Update remote dotfiles"
     scp -q ${SSH_DOTFILE_NAME} ${host}:
-    command /usr/bin/ssh $host tar xzf ${SSH_DOTFILE_NAME}
+    command /usr/bin/ssh ${host} tar xzf '${HOME}/.dotfiles_ssh.tar.gz'
   fi
 
   command ssh "$@"
