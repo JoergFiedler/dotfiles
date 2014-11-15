@@ -23,7 +23,7 @@ copy_ssh_id_host() {
      chmod 600 ${HOME}/.ssh/authorized_keys'
 }
 
-ssh() {
+_ssh() {
   host=$(echo "$*" | sed 's/.*[[:space:]]\([^\S]*\)$/\1/')
   local_sha=$(shasum -a 1 ${SSH_DOTFILE_NAME} |sed 's/\([^ ]*\).*/\1/g')
   remote_sha=$(remote_dotfiles_sha $host)
