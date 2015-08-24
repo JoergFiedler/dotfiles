@@ -4,3 +4,4 @@
 .subversion
 .profile.d
 .vimperator/plugins
+.tmux
