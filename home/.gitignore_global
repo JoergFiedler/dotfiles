@@ -7,4 +7,6 @@ venv
 tmp
 coverage
 .coverage
+.DS_Store
+**/xcuserdata/**
 
