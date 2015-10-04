@@ -2,21 +2,22 @@ set encoding=utf-8
 set nocompatible
 filetype off
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
+
 " installed bundles
-Bundle 'bling/vim-airline'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-pathogen'
-Bundle 'tpope/vim-fugitive'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdtree'
-Bundle 'leshill/vim-json'
-Bundle 'jtratner/vim-flavored-markdown'
-Bundle 'ap/vim-css-color'
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-pathogen'
+Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
+Plugin 'leshill/vim-json'
+Plugin 'jtratner/vim-flavored-markdown'
+Plugin 'ap/vim-css-color'
+Plugin 'kchmck/vim-coffee-script'
 
 " syntastic/pathogen
 execute pathogen#infect()

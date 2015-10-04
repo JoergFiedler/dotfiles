@@ -28,6 +28,7 @@ alias vi="vim"
 alias hs="homesick"
 alias le="less -R"
 alias sdiff="svn diff |colordiff|less -R"
+alias clear-downloads="rm -f ~/Downloads/*"
 
 alias pull="git pull --rebase --prune"
 alias status="git status ."
