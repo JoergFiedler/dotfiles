@@ -10,7 +10,6 @@ Plugin 'VundleVim/Vundle.vim'
 " installed bundles
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-pathogen'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
@@ -19,9 +18,6 @@ Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'ap/vim-css-color'
 Plugin 'kchmck/vim-coffee-script'
 
-" syntastic/pathogen
-execute pathogen#infect()
-"
 " some basic settings
 set term=screen-256color
 syn on " syntax highlighting
