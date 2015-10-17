@@ -9,14 +9,17 @@ Plugin 'VundleVim/Vundle.vim'
 
 " installed bundles
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'leshill/vim-json'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'ap/vim-css-color'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'airblade/vim-gitgutter'
+call vundle#end()
 
 " some basic settings
 set term=screen-256color

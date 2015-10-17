@@ -68,10 +68,3 @@ fi
 
 [[ -r ~/.bashmarks ]] && source ~/.bashmarks
 
-# NodeJS
-[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
-[ -r $NVM_DIR/bash_completion ] && . $NVM_DIR/bash_completion # bash autocompletion for NVM
-[ -r $NVM_PATH/../node_modules/npm/lib/utils/completion.sh ] \
-  && source $NVM_PATH/../node_modules/npm/lib/utils/completion.sh
-#eval "$(grunt --completion=bash)"
-
