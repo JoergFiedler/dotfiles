@@ -65,6 +65,7 @@ set ignorecase " Case insensitive search, by default.
 set smartcase " Case-sensitive if there any capital letters
 set hidden " Allow changing buffers even with modifications
 set title " Modify the terminal title
+set autoread " automatically load fs changes
 
 map <C-n> :NERDTreeToggle<CR>
 
