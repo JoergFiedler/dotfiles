@@ -10,7 +10,8 @@ set_title() {
 }
 
 prompt_cmd() {
-  PS1="$(set_title ${TITLE})${PROMPT_COLOR}\e[7m[\h | \w]\e[m\n \[\033[1;34m\]"$?"\[\e[0m\] $(git_prompt) $ "
+  __e=$?
+  PS1="$(set_title ${TITLE})${PROMPT_COLOR}\e[7m[\h | \w]\e[m\n \[\033[1;34m\]"$__e"\[\e[0m\] $(git_prompt) $ "
   history -a
 }
 

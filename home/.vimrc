@@ -19,6 +19,7 @@ Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'ap/vim-css-color'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'digitaltoad/vim-jade'
 call vundle#end()
 
 " some basic settings
