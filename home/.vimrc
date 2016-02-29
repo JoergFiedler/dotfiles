@@ -20,6 +20,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'genoma/vim-less'
 call vundle#end()
 
 " some basic settings
@@ -67,6 +68,16 @@ set smartcase " Case-sensitive if there any capital letters
 set hidden " Allow changing buffers even with modifications
 set title " Modify the terminal title
 set autoread " automatically load fs changes
+set autowriteall " save buffer on switch
+set undofile " Save undo's after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=1000 " How many undos
+set undoreload=10000 " number of lines to save for undo
+call system('mkdir -p ' . &undodir)
 
 map <C-n> :NERDTreeToggle<CR>
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
