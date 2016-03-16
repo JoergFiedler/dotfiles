@@ -21,6 +21,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'genoma/vim-less'
+Plugin 'wincent/command-t'
 call vundle#end()
 
 " some basic settings
@@ -73,9 +74,31 @@ set undofile " Save undo's after file closes
 set undodir=$HOME/.vim/undo " where to save undo histories
 set undolevels=1000 " How many undos
 set undoreload=10000 " number of lines to save for undo
+set wildignore=**/.git/,**/.idea/,**/.repo/,**/node_modules,**/bower_components
+let g:NERDTreeWinSize = 40 
 call system('mkdir -p ' . &undodir)
 
 map <C-n> :NERDTreeToggle<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 6
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_args = "-c ~/projects/here/datalens-tool/components/angular_modules/.eslintrc"
+let g:CommandTMaxHeight = 30
+let g:CommandTInputDebounce = 50
+if &term =~ "xterm" || &term =~ "screen"
+  let g:CommandTCancelMap = ['<ESC>', '<C-c>']
+endif
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
