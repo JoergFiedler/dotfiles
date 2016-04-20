@@ -10,4 +10,5 @@ coverage
 .DS_Store
 .vagrant
 **/xcuserdata/**
+db/seeds.rb
 
